@@ -10,6 +10,9 @@ header {
     flex-direction:column;
 
 }
+.container button {
+    display:none;
+}
 .container h1, h3 {
     align-self: flex-end;
 }
@@ -31,6 +34,10 @@ header {
     align-self:flex-start;
     
 
+}
+
+.para:hover {
+    background-color:dodgerblue;
 }
 #start {
     background-color:blueviolet;
