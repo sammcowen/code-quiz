@@ -6,12 +6,15 @@ var answer2= document.getElementById('answer2');
 var answer3= document.getElementById('answer3');
 var answer4= document.getElementById('answer4');
 var yee = document.getElementById('test');
+var initials = document.getElementById('text');
+var initialsBtn = document.getElementById('initials');
+var playAgainBtn = document.getElementById('replay');
 
 // variables 
+
 let timeLeft = 60;
 var startBtn = document.querySelector('#start');
 let currentIndex = 0; 
-//var userScore = 0;
 var questions = [
     {
         "questionNum": 1,
@@ -61,6 +64,16 @@ var questions = [
            "correctAnswer": 'answer1'
        
 
+     },
+     { "questionNum": 5,
+     "questionText":"Which of the following is the proper syntax for an Array?",
+     "answerOptions":[
+         'a. var fruits = ["apples","bananas", "oranges"];',
+         'b. var fruits = {apples, bananas, oranges};',
+         'c. var fruits = (1: apples, 2: bananas, 3: oranges);',
+         'd. none of the above'],
+         "correctAnswer": 'answer1'
+
      }
 
 ];
@@ -73,9 +86,12 @@ answer1.addEventListener('click', checkAnswer);
 answer2.addEventListener('click', checkAnswer);
 answer3.addEventListener('click', checkAnswer);
 answer4.addEventListener('click', checkAnswer);
+initialsBtn.addEventListener('click', storeScore);
+playAgainBtn.addEventListener('click', startQuiz);
+
 
 function startQuiz() {    
-    
+    var userScore = timeLeft;
     var gameTime = setInterval(function() {
         
         if(timeLeft > 0) {
@@ -84,7 +100,17 @@ function startQuiz() {
            timeLeft --;
         } else {
             timerEl.textContent = "Time's Up!";
-            textEl.textContent = "ALL DONE!"
+           textEl.textContent = "ALL DONE! your score  is " + userScore+ "!";
+            answer1.style.display = "none";
+            answer2.style.display = "none";
+            answer3.style.display = "none";
+            answer4.style.display = "none";
+            initials.style.display = "block";
+            initialsBtn.style.display = "block";
+            playAgainBtn.style.display = "block";
+            
+            
+
             clearInterval(gameTime);
         }
     }, 1000);
@@ -101,23 +127,32 @@ function startQuiz() {
 };
 // this is how the next questions show up.
 function nextQuestion() {
-    
+    var userScore = timeLeft;
     currentIndex ++;
     textEl.textContent = questions[currentIndex].questionText ;
     answer1.textContent = questions[currentIndex].answerOptions[0]; 
     answer2.textContent = questions[currentIndex].answerOptions[1];
     answer3.textContent = questions[currentIndex].answerOptions[2];
     answer4.textContent = questions[currentIndex].answerOptions[3]; 
-  
+    
+    if(currentIndex > 4) {
+        timerEl.style.display = "none";
+           textEl.textContent = "ALL DONE! your score  is " + userScore + "!";
+            answer1.style.display = "none";
+            answer2.style.display = "none";
+            answer3.style.display = "none";
+            answer4.style.display = "none";
+            initials.style.display = "block";
+            initialsBtn.style.display = "block";
+            playAgainBtn.style.display = "block";            
+    }
 
     
     
 };
-//  trying to get the game end to display if all questions are 
-//  clicked or the timer is up.and remove the buttons
 
-// ** THIS IS WHERE IM HAVING TROUBLE TO GET THE TIMER TO 
-// SUBTRACT 10 SECONDS AND DISPLAY.BUT THE TEXT CONTENT DOES.
+
+
 function checkAnswer(e) {
 e.preventDefault();
 var userAnswer = e.target.id;
@@ -136,5 +171,8 @@ nextQuestion();
 
 }
 
-
+function storeScore () {
+ console.log("did something right!");
+}
+ 
 
