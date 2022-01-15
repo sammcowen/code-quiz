@@ -39,6 +39,11 @@ header {
 .para:hover {
     background-color:dodgerblue;
 }
+#test {
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 75px;
+}
 #start {
     background-color:blueviolet;
     border-radius: 10px;

@@ -8,7 +8,7 @@ var answer4= document.getElementById('answer4');
 var yee = document.getElementById('test');
 
 // variables 
-let timeLeft ;
+let timeLeft = 60;
 var startBtn = document.querySelector('#start');
 let currentIndex = 0; 
 //var userScore = 0;
@@ -74,10 +74,7 @@ answer2.addEventListener('click', checkAnswer);
 answer3.addEventListener('click', checkAnswer);
 answer4.addEventListener('click', checkAnswer);
 
-function startQuiz() {
-
-
-    var timeLeft = 60;
+function startQuiz() {    
     
     var gameTime = setInterval(function() {
         
@@ -87,6 +84,7 @@ function startQuiz() {
            timeLeft --;
         } else {
             timerEl.textContent = "Time's Up!";
+            textEl.textContent = "ALL DONE!"
             clearInterval(gameTime);
         }
     }, 1000);
@@ -110,31 +108,33 @@ function nextQuestion() {
     answer2.textContent = questions[currentIndex].answerOptions[1];
     answer3.textContent = questions[currentIndex].answerOptions[2];
     answer4.textContent = questions[currentIndex].answerOptions[3]; 
+  
+
+    
     
 };
-// trying to get the game end to display if all questions are 
-// clicked or the timer is up.and remove the buttons
-// function endGame() {
-    // if (currentIndex > 4 || timeLeft === 0) {
-        // textEl.textContent = "Game'times over!";
-        // answer1.style.display="none";
-        // answer2.style.display="none";
-        // answer3.style.display="none";
-        // answer4.style.display="none";
+//  trying to get the game end to display if all questions are 
+//  clicked or the timer is up.and remove the buttons
 
-    // }
-// };
 // ** THIS IS WHERE IM HAVING TROUBLE TO GET THE TIMER TO 
 // SUBTRACT 10 SECONDS AND DISPLAY.BUT THE TEXT CONTENT DOES.
 function checkAnswer(e) {
 e.preventDefault();
 var userAnswer = e.target.id;
 if(userAnswer !== questions[currentIndex].correctAnswer){
-       yee.textContent = "youre wrong"; 
+    
+       yee.textContent = "WRONG!"; 
        timeLeft -=10;
        document.getElementById('timer').innerHTML= "Time: " + timeLeft + "seconds";
-       
+     
+}   else {
+    
+    yee.textContent = "CORRECT!";
+    
 }
-       
 nextQuestion();
+
 }
+
+
+
