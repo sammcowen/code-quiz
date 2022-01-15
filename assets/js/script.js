@@ -5,8 +5,10 @@ var answer1 = document.getElementById('answer1');
 var answer2= document.getElementById('answer2');
 var answer3= document.getElementById('answer3');
 var answer4= document.getElementById('answer4');
+var yee = document.getElementById('test');
 
 // variables 
+let timeLeft ;
 var startBtn = document.querySelector('#start');
 let currentIndex = 0; 
 //var userScore = 0;
@@ -18,7 +20,7 @@ var questions = [
             'b.slice()',
             'c.push()',
             'd. none of the above'],
-        "correctAnswer": "b.slice()"
+        "correctAnswer": "answer2"
     },
       {
       "questionNum": 2,
@@ -27,7 +29,7 @@ var questions = [
       'b. alert',
              'c. confirm',
              'd. all of the above'],
-         "correctAnswer": "d. all of the above"
+         "correctAnswer": "answer4"
      },
      {
        "questionNum": 3,
@@ -36,7 +38,7 @@ var questions = [
            'b. string',
            'c. number', 
            'd. null'],
-       "correctAnswer": "a. Boolean"
+       "correctAnswer": "answer1"
    },
     {
        "questionNum": 4,
@@ -45,7 +47,7 @@ var questions = [
        'b. myFunction();',
        'c. var myFunction= function();' ,
        'd. none of the above'],
-   "correctAnswer": "b. myFunction();"
+   "correctAnswer": "answer2"
 
    },
    {
@@ -56,7 +58,7 @@ var questions = [
            'b. var fruits = {apples, bananas, oranges};',
            'c. var fruits = (1: apples, 2: bananas, 3: oranges);',
            'd. none of the above'],
-           "correctAnswer": 'a. var fruits = ["apples","bananas", "oranges"];'
+           "correctAnswer": 'answer1'
        
 
      }
@@ -67,10 +69,10 @@ var questions = [
 
 //INTIATORS
 startBtn.addEventListener('click', startQuiz);
-answer1.addEventListener('click', nextQuestion);
-answer2.addEventListener('click', nextQuestion);
-answer3.addEventListener('click', nextQuestion);
-answer4.addEventListener('click', nextQuestion);
+answer1.addEventListener('click', checkAnswer);
+answer2.addEventListener('click', checkAnswer);
+answer3.addEventListener('click', checkAnswer);
+answer4.addEventListener('click', checkAnswer);
 
 function startQuiz() {
 
@@ -83,12 +85,12 @@ function startQuiz() {
             
             timerEl.textContent = "Time: " + timeLeft + " seconds";
            timeLeft --;
-        
         } else {
             timerEl.textContent = "Time's Up!";
             clearInterval(gameTime);
         }
     }, 1000);
+    startBtn.style.display = "none";
     answer1.style.display = "block";
     answer2.style.display = "block";
     answer3.style.display = "block";
@@ -112,13 +114,27 @@ function nextQuestion() {
 };
 // trying to get the game end to display if all questions are 
 // clicked or the timer is up.and remove the buttons
-function endGame() {
-    if (currentIndex > 4 || timeLeft === 0) {
-        textEl.textContent = "Game's over!";
-        answer1.style.display="none";
-        answer2.style.display="none";
-        answer3.style.display="none";
-        answer4.style.display="none";
+// function endGame() {
+    // if (currentIndex > 4 || timeLeft === 0) {
+        // textEl.textContent = "Game'times over!";
+        // answer1.style.display="none";
+        // answer2.style.display="none";
+        // answer3.style.display="none";
+        // answer4.style.display="none";
 
-    }
+    // }
+// };
+// ** THIS IS WHERE IM HAVING TROUBLE TO GET THE TIMER TO 
+// SUBTRACT 10 SECONDS AND DISPLAY.BUT THE TEXT CONTENT DOES.
+function checkAnswer(e) {
+e.preventDefault();
+var userAnswer = e.target.id;
+if(userAnswer !== questions[currentIndex].correctAnswer){
+       yee.textContent = "youre wrong"; 
+       timeLeft -=10;
+       document.getElementById('timer').innerHTML= "Time: " + timeLeft + "seconds";
+       
+}
+       
+nextQuestion();
 }
