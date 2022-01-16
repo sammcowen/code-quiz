@@ -6,15 +6,16 @@ var answer2= document.getElementById('answer2');
 var answer3= document.getElementById('answer3');
 var answer4= document.getElementById('answer4');
 var yee = document.getElementById('test');
-var initials = document.getElementById('text');
+var userName = document.getElementById('text');
 var initialsBtn = document.getElementById('initials');
-var playAgainBtn = document.getElementById('replay');
+
+
 
 // variables 
 
-let timeLeft = 60;
+var timeLeft = 60;
 var startBtn = document.querySelector('#start');
-let currentIndex = 0; 
+currentIndex = 0; 
 var questions = [
     {
         "questionNum": 1,
@@ -86,29 +87,33 @@ answer1.addEventListener('click', checkAnswer);
 answer2.addEventListener('click', checkAnswer);
 answer3.addEventListener('click', checkAnswer);
 answer4.addEventListener('click', checkAnswer);
-initialsBtn.addEventListener('click', storeScore);
-playAgainBtn.addEventListener('click', startQuiz);
+initialsBtn.addEventListener('click', mySave);
 
 
-function startQuiz() {    
-    var userScore = timeLeft;
+
+
+function startQuiz() {   
+    
+    let userScore = timeLeft;
     var gameTime = setInterval(function() {
         
         if(timeLeft > 0) {
             
-            timerEl.textContent = "Time: " + timeLeft + " seconds";
+            timerEl.textContent = "Time: " + timeLeft ;
            timeLeft --;
         } else {
             timerEl.textContent = "Time's Up!";
-           textEl.textContent = "ALL DONE! your score  is " + userScore+ "!";
+           textEl.textContent = "ALL DONE! Your Score  is " + userScore+ "!";
             answer1.style.display = "none";
             answer2.style.display = "none";
             answer3.style.display = "none";
             answer4.style.display = "none";
             initials.style.display = "block";
             initialsBtn.style.display = "block";
-            playAgainBtn.style.display = "block";
+            userName.style.display = "block";
+            localStorage.setItem('userScore', userScore);
             
+
             
 
             clearInterval(gameTime);
@@ -137,14 +142,18 @@ function nextQuestion() {
     
     if(currentIndex > 4) {
         timerEl.style.display = "none";
-           textEl.textContent = "ALL DONE! your score  is " + userScore + "!";
+           textEl.textContent = "ALL DONE! Your Score  is " + userScore + "!";
             answer1.style.display = "none";
             answer2.style.display = "none";
             answer3.style.display = "none";
             answer4.style.display = "none";
             initials.style.display = "block";
             initialsBtn.style.display = "block";
-            playAgainBtn.style.display = "block";            
+            userName.style.display = "block";
+            localStorage.setItem('userScore', userScore);
+            
+
+                      
     }
 
     
@@ -160,7 +169,7 @@ if(userAnswer !== questions[currentIndex].correctAnswer){
     
        yee.textContent = "WRONG!"; 
        timeLeft -=10;
-       document.getElementById('timer').innerHTML= "Time: " + timeLeft + "seconds";
+       document.getElementById('timer').innerHTML= "Time: " + timeLeft ;
      
 }   else {
     
@@ -170,9 +179,10 @@ if(userAnswer !== questions[currentIndex].correctAnswer){
 nextQuestion();
 
 }
+function mySave() {
+    var userName = document.getElementById("text").value;
+    localStorage.setItem("userName", userName);
+  }
 
-function storeScore () {
- console.log("did something right!");
-}
  
 
