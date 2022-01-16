@@ -5,6 +5,11 @@ header {
     color:blueviolet;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+header h1 {
+    border: 5px solid blueviolet;
+    padding: 10px;
+    border-radius: 10px;
+}
 .container {
     display:flex;
     flex-direction:column;
@@ -12,6 +17,7 @@ header {
 }
 .container button {
     display:none;
+    align-self: center;
 }
 .container h1, h3 {
     align-self: flex-end;
@@ -21,6 +27,12 @@ header {
     font-weight: bold;
     align-self:center;
     margin:30px;
+    font-family: sans-serif;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    line-height: 30px;
 
 
 }
@@ -43,6 +55,7 @@ header {
     font-size: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 75px;
+    align-self: center;
 }
 #text {
     font-size: 20px;
@@ -57,17 +70,19 @@ header {
     background-color:blueviolet;
     border-radius: 10px;
     color:white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     align-self: flex-end;
     padding:15px;
     display:none;
+    margin-top: 50px;
+
 }
 #start {
     background-color:blueviolet;
     border-radius: 10px;
     color:white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     align-self: center;
     padding:15px;
