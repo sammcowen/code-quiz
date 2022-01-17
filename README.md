@@ -21,7 +21,8 @@ Console.log is also very important when using the localStore API as you can see 
 
 Below are my screenshots from my application
 ** This shows the start page for the application. 
-![Screenshot (46)](https://user-images.githubusercontent.com/92121595/149731195-dfff4dd9-69af-4017-bc28-669811e71470.png)
+![Screenshot (46)](https://user-images.githubusercontent.com/92121595/149731706-dbfd6cc1-b9a5-4e5c-bcd4-2f83e7c5f2e5.png)
+
 
 ** This shows the question, it's options and how the hover effect turns the option blue, and the timer start to countdown.
 ![Screenshot (47)](https://user-images.githubusercontent.com/92121595/149731244-e6e42685-5aa9-49fe-9ce3-70ea473b96ff.png)
