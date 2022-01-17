@@ -9,6 +9,7 @@ var yee = document.getElementById('test');
 var nameEl = document.getElementById('text');
 var initialsBtn = document.getElementById('initials');
 var scoreSheet = document.getElementById('scores'); 
+var restart = document.getElementById('restart');
 
 
 
@@ -120,6 +121,7 @@ function startQuiz() {
             initials.style.display = "block";
             initialsBtn.style.display = "block";
             nameEl.style.display = "block";
+            restart.style.display ="block";
             // startBtn.style.display = "block";
             // startBtn.textContent = "Play Again";
             
@@ -158,6 +160,7 @@ function nextQuestion() {
             nameEl.style.display = "block";
             // startBtn.style.display = "block";
             // startBtn.textContent = "Play Again";
+            restart.style.display = "block";
             clearInterval(gameTime);
            
             
@@ -211,12 +214,15 @@ function showScores() {
          return `<li class="para">${pleaseWork.initials}-${pleaseWork.score}</li>`;
      })
      .join("");
+     textEl.textContent = "Compare your score to others";
      yee.style.display = "none";
      nameEl.style.display = "none";
      initialsBtn.style.display = "none";
      startBtn.style.display = "none";
      scoreList.style.display -"block";
+     restart.style.display ="block";
 };
+
     
     
 

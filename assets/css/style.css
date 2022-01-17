@@ -38,7 +38,7 @@ header h1 {
 }
 #scoreList {
     display: "none";
-    
+
 }
 .para {
     font-size: 20px;
@@ -54,6 +54,9 @@ header h1 {
 
 .para:hover {
     background-color:dodgerblue;
+}
+#scoreList {
+    align-self:center;
 }
 #test {
     font-size: 20px;
@@ -91,6 +94,19 @@ header h1 {
     align-self: center;
     padding:15px;
     display:block;
+}
+#restart {
+    display:none;
+    background-color:blueviolet;
+    border-radius: 10px;
+    color:white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    align-self: flex-end;
+    padding:15px;
+    margin-top: 50px;
+
+    
 }
 #submit {
     display:flex;
