@@ -21,15 +21,15 @@ Console.log is also very important when using the localStore API as you can see 
 
 Below are my screenshots from my application
 ** This shows the start page for the application. 
-![Screenshot (46)](https://user-images.githubusercontent.com/92121595/149729900-957461bc-5e9e-49f9-9cd4-c6fb312e756a.png)
+![Screenshot (46)](https://user-images.githubusercontent.com/92121595/149731195-dfff4dd9-69af-4017-bc28-669811e71470.png)
 
 ** This shows the question, it's options and how the hover effect turns the option blue, and the timer start to countdown.
-![Screenshot (47)](https://user-images.githubusercontent.com/92121595/149729929-a2214c4f-a666-4c48-b182-e05026a0f4db.png)
+![Screenshot (47)](https://user-images.githubusercontent.com/92121595/149731244-e6e42685-5aa9-49fe-9ce3-70ea473b96ff.png)
 
 ** This shows how the user has finished the game, their score  and can enter their initials in the textarea.
-![Screenshot (49)](https://user-images.githubusercontent.com/92121595/149729968-dda2f9ec-5742-46dc-b721-f3cc35704673.png)
+![Screenshot (49)](https://user-images.githubusercontent.com/92121595/149731290-1cc12a4a-e0d2-4f10-9348-e748980fa078.png)
 
-** This shows what happens after user click save score button: Te top scores displayed and a playagain button which will strat the game over for the user. 
- ![Screenshot (50)](https://user-images.githubusercontent.com/92121595/149730001-18ba43b8-e250-42e9-885e-b0e614add18e.png)
+** This shows what happens after user click save score button: Te top scores displayed and a playagain button which will start the game over for the user. 
+![Screenshot (50)](https://user-images.githubusercontent.com/92121595/149731306-20d78e6b-2487-4eaf-af93-7eee958f4fef.png)
 
 ### Here is a link to my deployed project : https://sammcowen.github.io/code-quiz/
