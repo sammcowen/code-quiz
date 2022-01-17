@@ -8,6 +8,7 @@ var answer4= document.getElementById('answer4');
 var yee = document.getElementById('test');
 var nameEl = document.getElementById('text');
 var initialsBtn = document.getElementById('initials');
+var scoreSheet = document.getElementById('scores'); 
 
 
 
@@ -94,6 +95,7 @@ answer2.addEventListener('click', checkAnswer);
 answer3.addEventListener('click', checkAnswer);
 answer4.addEventListener('click', checkAnswer);
 initialsBtn.addEventListener('click', mySave);
+scoreSheet.addEventListener('click', showScores);
 
 
 
@@ -202,5 +204,20 @@ function mySave() {
     
   };
 
- 
+//   trying to get codes to appear into the scores upon a click
+function showScores() {
+    const highScores =JSON.parse(localStorage.getItem('highScores')) || [];
+     scoreList.innerHTML = highScores.map(pleaseWork => {
+         return `<li class="para">${pleaseWork.initials}-${pleaseWork.score}</li>`;
+     })
+     .join("");
+     yee.style.display = "none";
+     nameEl.style.display = "none";
+     initialsBtn.style.display = "none";
+     startBtn.style.display = "none";
+     scoreList.style.display -"block";
+};
+    
+    
+
 
