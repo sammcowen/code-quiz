@@ -6,13 +6,15 @@ var answer2= document.getElementById('answer2');
 var answer3= document.getElementById('answer3');
 var answer4= document.getElementById('answer4');
 var yee = document.getElementById('test');
-var userName = document.getElementById('text');
+var nameEl = document.getElementById('text');
 var initialsBtn = document.getElementById('initials');
 
 
 
-// variables 
 
+// variables 
+var userName = document.getElementById('text').value;
+var userScore;
 var timeLeft = 60;
 var startBtn = document.querySelector('#start');
 currentIndex = 0; 
@@ -78,6 +80,10 @@ var questions = [
      }
 
 ];
+var userName = document.getElementById("text").value;
+const highScores =JSON.parse(localStorage.getItem("highScores")) || [];
+
+finalScore = userScore;
 
 
 
@@ -88,6 +94,7 @@ answer2.addEventListener('click', checkAnswer);
 answer3.addEventListener('click', checkAnswer);
 answer4.addEventListener('click', checkAnswer);
 initialsBtn.addEventListener('click', mySave);
+
 
 
 
@@ -110,8 +117,8 @@ function startQuiz() {
             answer4.style.display = "none";
             initials.style.display = "block";
             initialsBtn.style.display = "block";
-            userName.style.display = "block";
-            localStorage.setItem('userScore', userScore);
+            nameEl.style.display = "block";
+           
             
 
             
@@ -149,8 +156,8 @@ function nextQuestion() {
             answer4.style.display = "none";
             initials.style.display = "block";
             initialsBtn.style.display = "block";
-            userName.style.display = "block";
-            localStorage.setItem('userScore', userScore);
+            nameEl.style.display = "block";
+           
             
 
                       
@@ -179,10 +186,20 @@ if(userAnswer !== questions[currentIndex].correctAnswer){
 nextQuestion();
 
 }
+
+// TRYING TO STORE SCORES IN LOCAL STORAGE WHEN #INTIALS.BTN IS CLICKED
 function mySave() {
-    var userName = document.getElementById("text").value;
-    localStorage.setItem("userName", userName);
-  }
+    const pleaseWork= {
+
+    score: finalScore,
+    initials: userName  
+  };
+    highScores.push(pleaseWork);
+
+    
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    
+  };
 
  
 
