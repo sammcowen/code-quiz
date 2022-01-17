@@ -13,8 +13,8 @@ var initialsBtn = document.getElementById('initials');
 
 
 // variables 
-var userName = document.getElementById('text').value;
-var userScore;
+
+var gameTime;
 var timeLeft = 60;
 var startBtn = document.querySelector('#start');
 currentIndex = 0; 
@@ -80,10 +80,10 @@ var questions = [
      }
 
 ];
-var userName = document.getElementById("text").value;
+
 const highScores =JSON.parse(localStorage.getItem("highScores")) || [];
 
-finalScore = userScore;
+
 
 
 
@@ -101,16 +101,16 @@ initialsBtn.addEventListener('click', mySave);
 
 function startQuiz() {   
     
-    let userScore = timeLeft;
+  
     var gameTime = setInterval(function() {
         
         if(timeLeft > 0) {
             
             timerEl.textContent = "Time: " + timeLeft ;
            timeLeft --;
-        } else {
+        } else {clearInterval(gameTime);
             timerEl.textContent = "Time's Up!";
-           textEl.textContent = "ALL DONE! Your Score  is " + userScore+ "!";
+           textEl.textContent = "ALL DONE! Your Score  is " + timeLeft+ "!";
             answer1.style.display = "none";
             answer2.style.display = "none";
             answer3.style.display = "none";
@@ -118,12 +118,9 @@ function startQuiz() {
             initials.style.display = "block";
             initialsBtn.style.display = "block";
             nameEl.style.display = "block";
-           
+            // startBtn.style.display = "block";
+            // startBtn.textContent = "Play Again";
             
-
-            
-
-            clearInterval(gameTime);
         }
     }, 1000);
     startBtn.style.display = "none";
@@ -139,7 +136,7 @@ function startQuiz() {
 };
 // this is how the next questions show up.
 function nextQuestion() {
-    var userScore = timeLeft;
+    
     currentIndex ++;
     textEl.textContent = questions[currentIndex].questionText ;
     answer1.textContent = questions[currentIndex].answerOptions[0]; 
@@ -149,7 +146,7 @@ function nextQuestion() {
     
     if(currentIndex > 4) {
         timerEl.style.display = "none";
-           textEl.textContent = "ALL DONE! Your Score  is " + userScore + "!";
+           textEl.textContent = "ALL DONE! Your Score  is " + timeLeft + "!";
             answer1.style.display = "none";
             answer2.style.display = "none";
             answer3.style.display = "none";
@@ -157,6 +154,9 @@ function nextQuestion() {
             initials.style.display = "block";
             initialsBtn.style.display = "block";
             nameEl.style.display = "block";
+            // startBtn.style.display = "block";
+            // startBtn.textContent = "Play Again";
+            clearInterval(gameTime);
            
             
 
@@ -189,9 +189,10 @@ nextQuestion();
 
 // TRYING TO STORE SCORES IN LOCAL STORAGE WHEN #INTIALS.BTN IS CLICKED
 function mySave() {
+    var userName = document.getElementById('text').value;
     const pleaseWork= {
 
-    score: finalScore,
+    score: timeLeft,
     initials: userName  
   };
     highScores.push(pleaseWork);
