@@ -204,7 +204,7 @@ function mySave() {
 
     
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    
+    showScores();
   };
 
 //   trying to get codes to appear into the scores upon a click
@@ -214,7 +214,7 @@ function showScores() {
          return `<li class="para">${pleaseWork.initials}-${pleaseWork.score}</li>`;
      })
      .join("");
-     textEl.textContent = "Compare your score to others";
+     textEl.textContent = "TOP SCORES";
      yee.style.display = "none";
      nameEl.style.display = "none";
      initialsBtn.style.display = "none";
