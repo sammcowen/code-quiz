@@ -105,7 +105,7 @@ scoreSheet.addEventListener('click', showScores);
 function startQuiz() {   
     
   
-    var gameTime = setInterval(function() {
+     gameTime = setInterval(function() {
         
         if(timeLeft > 0) {
             
